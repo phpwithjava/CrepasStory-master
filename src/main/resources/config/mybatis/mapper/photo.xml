@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="">
+
+	<!-- 메인화면 게시물의 사진 이미지 리스트 -->
+	<select id="photo_list" parameterType="int" resultType="photo">
+		select * from ic_photo where post_idx=#{ post_idx } order by photo_idx desc
+	</select>
+	
+	<!-- 사진 이미지 모아보기 리스트 -->
+	<select id="all_list" parameterType="int" resultType="photo">
+		select * from ic_photo where user_idx=#{ user_idx } order by photo_idx desc
+	</select>
+	
+	<!-- post_idx로 사진정보 가져오기 (삭제할때 사용) -->
+	<select id="photo_one" parameterType="int" resultType="photo">
+		select * from ic_photo where post_idx=#{ post_idx }
+	</select>
+
+	<!-- 이미지 업로드 -->
+	<insert id="photo_insert" parameterType="photo">
+		insert into ic_photo values(
+			seq_photo_idx.nextVal,
+			#{ user_idx },
+			#{ post_idx },
+			#{ photoname },
+			sysdate
+		)
+	</insert>
+	
+	<!-- 이미지 삭제 -->
+	<delete id="photo_delete" parameterType="int">
+		delete from ic_photo where post_idx=#{ post_idx }
+	</delete>
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="">
+
+	<select id="friend_list" parameterType="int" resultType="friend">
+		select * from ic_friend where user_idx=#{ user_idx }
+	</select>
+	
+	<insert id="friend_insert" parameterType="friend">
+		insert into ic_friend values(seq_friend_idx.nextVal,
+									 #{ user_idx },
+									 #{ friend_idx },
+									 2,
+									 sysdate)
+	</insert>
+
+	<delete id="friend_delete" parameterType="friend">
+		delete from ic_friend where user_idx=#{ user_idx } and friend_idx=#{ friend_idx }
+	</delete>
+
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+

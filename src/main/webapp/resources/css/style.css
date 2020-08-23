@@ -1,0 +1,196 @@
+@import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
+body {
+	overflow: hidden;
+	margin: 0;
+	font-family: 'Nanum Gothic', sans-serif;
+}
+
+a:active {
+	outline: none;
+}
+
+.Message {
+	overflow: hidden;
+	visibility: hidden;
+	position: absolute;
+	width: 600px;
+	/*250px*/
+	height: 0px;
+	top: calc(50% - 125px);
+	left: calc(50% - 225px);
+	background: rgba(255, 255, 255, 0.9);
+	border: 1px solid #777;
+	border-radius: 30px;
+}
+
+.signup_form {
+	visibility: hidden;
+	margin-left: calc(50% - 100px);
+	margin-top: calc(50% - 754px);
+	border-radius: 25px;
+	border: 1px solid #777777;
+	float: left;
+	text-align: center;
+	width: 300px;
+	background: rgba(255, 255, 255, 0.99);
+	position: absolute;
+	padding: 20px 5px;
+}
+.signup_form > form > a > img{
+	margin-top:15px;
+	width:150px;
+}
+
+.signup_form > form > input[type="file"]{
+	width:0px;
+	height:0px;
+	visibility:hidden;
+}
+
+.signup_form > form > a > input {
+	outline: none;
+	display: block;
+	width: 245px;
+	margin: 14px 27.5px;
+	padding: 5px 15px;
+	border-radius: 30px;
+	border: 1px solid #cccccc;
+}
+
+.signup_form> form >input {
+	outline: none;
+	display: block;
+	width: 245px;
+	margin: 14px 27.5px;
+	padding: 5px 15px;
+	border-radius: 30px;
+	border: 1px solid #cccccc;
+}
+
+.signup_form>div {
+	margin-left: 50px;
+	width: 200px;
+	padding-bottom: 15px;
+	padding-top: 5px;
+	margin-bottom: 7px;
+	border-bottom: 1px solid #777777;
+}
+
+.signup_form>a>button {
+	color: #ffffff;
+	background: #555555;
+	padding: 10px 30px;
+	border-radius: 30px;
+	border: 0;
+}
+
+.Message>.title {
+	float: left;
+	color: #ffffff;
+	background: rgba(0, 0, 255, 0.65);
+	border-bottom: 1px solid #777777;
+	float: left;
+	text-align: center;
+	width: 600px;
+	font-size: 21px;
+	padding: 15px 0;
+}
+
+.Message>.content {
+	float: left;
+	text-align: center;
+	margin-top: 60px;
+	width: 600px;
+	height: 70px;
+}
+
+.Message>a>.btn {
+	margin-left: 212.5px;
+	width: 175px;
+}
+
+.background {
+	z-index: -1;
+	position: absolute;
+	top: calc(50% - 540px);
+	left: calc(50% - 960px)
+}
+
+.background>img {
+	width: 1920px;
+}
+
+header {
+	width: 100%;
+	float: left;
+	padding: 30px 0;
+	margin-top: calc(50vh - 241.5px);
+}
+
+header>nav {
+	text-align: center;
+	float: left;
+	margin-left: calc(50% - 80px);
+}
+
+nav>.logo {
+	width: 300px;
+	padding: 20px 0;
+	background: rgba(255, 255, 255, 0.5);
+	font-size: 23px;
+	user-select: none;
+}
+
+.logo>span {
+	font-weight: bold;
+}
+
+section {
+	float: left;
+	padding: 10px 0;
+	width: 100%;
+}
+
+section>.form {
+	margin-left: calc(50% - 150px);
+	background: rgba(255, 255, 255, 0.5);
+	width: 420px;
+	padding: 30px 70px;
+}
+
+.from>div, input[type="text"], input[type="password"] {
+	float: left;
+	display: block;
+}
+
+.form>div:first-child {
+	padding: 15px 0;
+	padding-top: 0;
+}
+
+.form>input[type="text"], input[type="password"] {
+	outline: none;
+	border: 1px solid #999;
+	border-radius: 20px;
+	padding: 10px 20px;
+	width: 260px;
+}
+
+.form>input[type="text"]:first-child {
+	margin-bottom: 10px;
+}
+
+.form>a>button {
+	user-select: none;
+	outline: none;
+	font-size: 17px;
+	color: #ffffff;
+	margin-top: 15px;
+	margin-left: 17px;
+	border: 0;
+	border-radius: 30px;
+	background: #555;
+	width: 230px;
+	height: 50px;
+}

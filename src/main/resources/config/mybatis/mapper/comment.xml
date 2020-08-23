@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="">
+	<select id="comment_list_condition" parameterType="int" resultType="comment">
+		select * from ic_comment where post_idx=#{ post_idx } order by comment_idx desc
+	</select>
+	
+	<insert id="comment_insert" parameterType="comment">
+		insert into ic_comment values(
+			seq_comment_idx.nextVal,
+			#{ post_idx },
+			#{ user_idx },
+			#{ username },
+			#{ content },
+			sysdate
+		)
+	</insert>
+	
+	<update id="comment_update" parameterType="comment">
+		update ic_comment set
+			content = #{ content },
+			regdate = sysdate
+		where comment_idx = #{ comment_idx }
+	</update>
+	
+	<delete id="comment_delete" parameterType="int">
+		delete from ic_comment where comment_idx=#{ comment_idx }
+	</delete>
+
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="">
+
+	<select id="post_list" parameterType="int" resultType="post">
+		select * from ic_post where user_idx=#{ user_idx } order by post_idx desc
+	</select>
+
+	<!-- 사진 이미지 포함한 게시물 Insert시 Photo DB의 post_idx 값 구하기 -->
+	<select id="post_idx_list" parameterType="int" resultType="int">
+		select max(post_idx) from ic_post where user_idx=#{ user_idx }
+	</select>
+
+	<select id="post_list_condition" parameterType="java.util.Map" resultType="post">
+		select * from 
+		(
+			select
+				rank() over(order by post_idx desc) no, p.*
+			from
+				(select * from ic_post where user_idx=#{ user_idx }) p
+		)
+		where no between #{ start } and #{ end }
+			
+	</select>
+	
+	<insert id="post_insert" parameterType="post">
+		insert into ic_post values(
+			seq_post_idx.nextVal,
+			#{ user_idx },
+			#{content},
+			sysdate
+		)
+	</insert>
+	
+	<update id="post_update" parameterType="post">
+		update ic_post set
+			content = #{ content }
+		where post_idx = #{ post_idx }
+	</update>
+	
+	<delete id="post_delete" parameterType="int">
+		delete from ic_post where post_idx=#{ post_idx }
+	</delete>
+
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+

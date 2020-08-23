@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="">
+
+	<select id="login_check" parameterType="java.lang.String"
+		resultType="user">
+		select * from ic_user where userid=#{ userid }
+	</select>
+
+	<!-- 회원 정보 보기 -->
+	<select id="info_list" parameterType="int" resultType="user">
+		select *
+		from ic_user where user_idx=#{ user_idx }
+	</select>
+
+	<!-- 회원 가입 -->
+	<insert id="member_insert" parameterType="user">
+		insert into ic_user
+		values(
+		seq_user_idx.nextVal,
+		#{ username },
+		#{ userid },
+		#{ password },
+		#{ birthday },
+		#{ phonenumber },
+		#{ addr },
+		#{ profile }
+		)
+	</insert>
+
+	<!-- 회원 정보 수정 -->
+	<update id="user_update" parameterType="user">
+		update ic_user set
+		password=#{ password },
+		phonenumber=#{ phonenumber },
+		addr=#{ addr },
+		profile=#{ profile }
+		where user_idx=#{ user_idx }
+	</update>
+
+
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
